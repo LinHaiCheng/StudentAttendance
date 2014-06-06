@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:weightSum="1">
+
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/stuhead"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/stuinfo" android:focusable="false"/>
+    </LinearLayout>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text="到课"
+            android:id="@+id/come"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:weightSum="1">
+        <Button
+                android:layout_width="198dp"
+                android:layout_height="60dp"
+                android:text="请假"
+                android:id="@+id/leave" android:layout_weight="0.90"/>
+        <Button
+                android:layout_width="198dp"
+                android:layout_height="60dp"
+                android:text="旷课"
+                android:id="@+id/absence"/>
+    </LinearLayout>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text="取消考试资格"
+            android:id="@+id/fuckoff"/>
+</LinearLayout>

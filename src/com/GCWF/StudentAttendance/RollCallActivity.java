@@ -57,8 +57,8 @@ public class RollCallActivity extends Activity {
                 + "姓名: " + currentStu.getName() + "\n"
                 + currentStu.getAcademy()
                 + currentStu.getClassOfAcademy() + "\n"
-                + "请假次数: " + currentStu.getLeaveNum() + "\n"
-                + "旷课次数: " + currentStu.getAbsenceNum();
+                + "请假: " + currentStu.getLeaveNum() + "\n"
+                + "次数: " + currentStu.getAbsenceNum();
 
         editText.setText(stuInfo);
     }

@@ -20,9 +20,15 @@ public class Student implements Serializable {
 
     public Student() {
         id = "2011051139";
+<<<<<<< HEAD
         name = "éƒ­å·ç£Š";
         academy = "è®¡ç®—æœºå­¦é™¢";
         classOfAcademy = "åº”ç”¨113ç­";
+=======
+        name = "¹ù´¨ÀÚ";
+        academy = "¼ÆËã»úÑ§Ôº";
+        classOfAcademy = "Ó¦ÓÃ3°à";
+>>>>>>> FETCH_HEAD
         isCome = true;
         isLeave = false;
         isAbsence = false;

@@ -1,7 +1,11 @@
 <component name="libraryTable">
   <library name="android-support-v4">
     <CLASSES>
+<<<<<<< HEAD
       <root url="jar://$USER_HOME$/Downloads/android-support-v4.jar!/" />
+=======
+      <root url="jar://D:/JAVA/工具包/android-support-v4.jar!/" />
+>>>>>>> FETCH_HEAD
     </CLASSES>
     <JAVADOC />
     <SOURCES />

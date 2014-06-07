@@ -98,23 +98,32 @@ public class MainActivity extends Activity {
             ImageView detailView = (ImageView)itemView.findViewById(R.id.detailView);
             detailView.setImageResource(R.drawable.detailarrow);
             TextView classBosses = (TextView)itemView.findViewById(R.id.classBosses);
-            String bossesString = "班长: " + c.getClassMonitor().getName() + "  学习委员: " + c.getStudyMonitor().getName();
+            String bossesString = "�೤: " + c.getClassMonitor().getName() + "  ѧϰίԱ: " + c.getStudyMonitor().getName();
             classBosses.setText(bossesString);
             TextView classNum = (TextView)itemView.findViewById(R.id.classNum);
-            String shouldComeString = "应到: " + c.getStuNum() + "人";
+            String shouldComeString = "Ӧ��: " + c.getStuNum() + "��";
             classNum.setText(shouldComeString);
             TextView attendance = (TextView)itemView.findViewById(R.id.attendance);
-            StringBuffer anntendanceString = new StringBuffer("点名情况: ");
+            StringBuffer anntendanceString = new StringBuffer("�������: ");
             if (c.getAbsenceStuNum() == 0) {
-                anntendanceString = anntendanceString.append("全勤");
+                anntendanceString = anntendanceString.append("ȫ��");
             } else if (c.getLeaveStuNum() == 0) {
                 int num = c.getStuNum() - c.getAbsenceStuNum() - c.getLeaveStuNum();
+<<<<<<< HEAD
                 anntendanceString = anntendanceString.append("实到" + num + "人, 旷课" +
                         c.getAbsenceStuNum() + "人");
             } else {
                 int num = c.getStuNum() - c.getAbsenceStuNum() - c.getLeaveStuNum();
                 anntendanceString = anntendanceString.append("实到" + num + "人, 请假" + c.getLeaveStuNum() + "人, 旷课"
                         + c.getAbsenceStuNum() + "人");
+=======
+                anntendanceString = anntendanceString.append("ʵ��" + num + "��, ����" +
+                    c.getAbsenceStuNum() + "��");
+            } else {
+                int num = c.getStuNum() - c.getAbsenceStuNum() - c.getLeaveStuNum();
+                anntendanceString = anntendanceString.append("ʵ��" + num + "��, ���" + c.getLeaveStuNum() + "��, ����"
+                    + c.getAbsenceStuNum() + "��");
+>>>>>>> FETCH_HEAD
             }
             attendance.setText(anntendanceString);
             return itemView;

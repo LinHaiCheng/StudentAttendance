@@ -22,8 +22,8 @@ public class Class implements Serializable {
 
     public Class() {
         id = "åº”ç”¨ä¸‰ç­";
-        classMonitor = new Student("2011051151", "³Ìº£ÁÖ");
-        studyMonitor = new Student("2011051136", "¹ù´¨ÀÚ");
+        classMonitor = new Student("2011051151", "ç¨‹æµ·æ—");
+        studyMonitor = new Student("2011051136", "å´äº‘é¹");
         stuNum = 40;
         leaveStuNum = 0;
         absenceStuNum = 0;

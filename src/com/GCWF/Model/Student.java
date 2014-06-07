@@ -22,7 +22,7 @@ public class Student implements Serializable {
         id = "2011051139";
         name = "郭川磊";
         academy = "计算机学院";
-        classOfAcademy = "应用三班";
+        classOfAcademy = "应用113班";
         isCome = true;
         isLeave = false;
         isAbsence = false;

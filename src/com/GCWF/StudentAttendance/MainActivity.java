@@ -110,11 +110,11 @@ public class MainActivity extends Activity {
             } else if (c.getLeaveStuNum() == 0) {
                 int num = c.getStuNum() - c.getAbsenceStuNum() - c.getLeaveStuNum();
                 anntendanceString = anntendanceString.append("实到" + num + "人, 旷课" +
-                    c.getAbsenceStuNum() + "人");
+                        c.getAbsenceStuNum() + "人");
             } else {
                 int num = c.getStuNum() - c.getAbsenceStuNum() - c.getLeaveStuNum();
                 anntendanceString = anntendanceString.append("实到" + num + "人, 请假" + c.getLeaveStuNum() + "人, 旷课"
-                    + c.getAbsenceStuNum() + "人");
+                        + c.getAbsenceStuNum() + "人");
             }
             attendance.setText(anntendanceString);
             return itemView;

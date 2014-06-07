@@ -20,9 +20,9 @@ public class Student implements Serializable {
 
     public Student() {
         id = "2011051139";
-        name = "éƒ­å·ç£Š";
-        academy = "è®¡ç®—æœºå­¦é™¢";
-        classOfAcademy = "åº”ç”¨ä¸‰ç­";
+        name = "¹ù´¨ÀÚ";
+        academy = "¼ÆËã»úÑ§Ôº";
+        classOfAcademy = "Ó¦ÓÃ3°à";
         isCome = true;
         isLeave = false;
         isAbsence = false;

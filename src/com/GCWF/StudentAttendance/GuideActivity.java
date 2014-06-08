@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import com.GCWF.Adapter.ViewPagerAdapter;
+
 /**
  * Created by 程海林 on 2014/6/7.
  */

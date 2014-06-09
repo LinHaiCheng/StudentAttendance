@@ -1,8 +1,7 @@
 <component name="libraryTable">
   <library name="android-support-v4">
     <CLASSES>
-      <root url="jar://D:/JAVA/工具包/android-support-v4.jar!/" />
-      <root url="jar://D:/JAVA/工具包/jexcelapi/jxl.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/android-support-v4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

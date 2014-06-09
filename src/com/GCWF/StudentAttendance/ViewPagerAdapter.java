@@ -1,4 +1,4 @@
-package com.GCWF.Adapter;
+package com.GCWF.StudentAttendance;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;

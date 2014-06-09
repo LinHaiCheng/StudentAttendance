@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">StudentAttendance</string>
-    <string name="actionbar_label">课程</string>
-    <string name="classes_label">班级</string>
+    <string name="actionbar_label">班级</string>
 </resources>

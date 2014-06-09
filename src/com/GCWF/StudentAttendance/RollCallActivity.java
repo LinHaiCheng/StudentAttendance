@@ -29,6 +29,7 @@ public class RollCallActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rollcall);
 
+        Intent intent = getIntent();
         aClass = (Class)getIntent().getSerializableExtra("classInfo");
 
         imageView = (ImageView)findViewById(R.id.stuhead);
@@ -40,7 +41,7 @@ public class RollCallActivity extends Activity {
         fuckOffButton = (Button)findViewById(R.id.fuckoff);
 
         currentStuIndex = 0;
-        configUI();    // Display the information of first student in the class
+        configUI(0);    // Display the information of first student in the class
 
         // Configure the listeners
         comeButton.setOnClickListener(comeButtonListener);
@@ -49,21 +50,17 @@ public class RollCallActivity extends Activity {
         fuckOffButton.setOnClickListener(fuckOffButotnListener);
     }
 
-    private void configUI() {
-        if (currentStuIndex <= aClass.getStudents().size()) {
-            Student currentStu = aClass.getStudents().get(currentStuIndex);
+    private void configUI(int stuIndex) {
+        Student currentStu = aClass.getStudents().get(currentStuIndex);
 
-            String stuInfo = "学号: " + currentStu.getId() + "\n"
-                    + "姓名: " + currentStu.getName() + "\n"
-                    + currentStu.getAcademy()
-                    + currentStu.getClassOfAcademy() + "\n"
-                    + "请假次数: " + currentStu.getLeaveNum() + "\n"
-                    + "旷课次数: " + currentStu.getAbsenceNum();
+        String stuInfo = "学号: " + currentStu.getId() + "\n"
+                + "姓名: " + currentStu.getName() + "\n"
+                + currentStu.getAcademy()
+                + currentStu.getClassOfAcademy() + "\n"
+                + "请假次数: " + currentStu.getLeaveNum() + "\n"
+                + "旷课次数: " + currentStu.getAbsenceNum();
 
-            editText.setText(stuInfo);
-        } else {
-
-        }
+        editText.setText(stuInfo);
     }
 
     private View.OnClickListener comeButtonListener = new View.OnClickListener() {
@@ -72,8 +69,7 @@ public class RollCallActivity extends Activity {
             Student currentStu = aClass.getStudents().get(currentStuIndex);
             currentStu.setCome(true);
             aClass.setComeStuNum(aClass.getComeStuNum() + 1);
-            ++ currentStuIndex;
-            configUI();
+            configUI(++ currentStuIndex);
         }
     };
 
@@ -83,8 +79,7 @@ public class RollCallActivity extends Activity {
             Student currentStu = aClass.getStudents().get(currentStuIndex);
             currentStu.setLeave(true);
             aClass.setLeaveStuNum(aClass.getLeaveStuNum() + 1);
-            ++ currentStuIndex;
-            configUI();
+            configUI(++ currentStuIndex);
         }
     };
 
@@ -94,8 +89,7 @@ public class RollCallActivity extends Activity {
             Student currentStu = aClass.getStudents().get(currentStuIndex);
             currentStu.setAbsence(true);
             aClass.setAbsenceStuNum(aClass.getAbsenceStuNum() + 1);
-            ++ currentStuIndex;
-            configUI();
+            configUI(++ currentStuIndex);
         }
     };
 
@@ -106,8 +100,7 @@ public class RollCallActivity extends Activity {
             currentStu.setAbsence(true);
             aClass.setAbsenceStuNum(aClass.getAbsenceStuNum() + 1);
             currentStu.setAllowToExam(true);
-            ++ currentStuIndex;
-            configUI();
+            configUI(++ currentStuIndex);
         }
     };
 }

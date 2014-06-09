@@ -7,10 +7,14 @@ import java.io.Serializable;
  * Created by Chuan on 6/5/14.
  */
 public class Student implements Serializable {
-    private String id;
-    private String name;
-    private String academy;
-    private String classOfAcademy;
+    private String id;      //学号
+    private String name;        //姓名
+    private String phone;       //联系方式
+    private String sex;         //性别
+    private String academy;     //学院
+    private String classOfAcademy;  //班级
+    private String duty;            //职务
+
     private int leaveNum;
     private int absenceNum;
     private boolean isCome;
@@ -28,7 +32,6 @@ public class Student implements Serializable {
         isAbsence = false;
         isAllowToExam = false;
     }
-
     public Student(String id, String name) {
         this.id = id;
         this.name = name;
@@ -36,6 +39,16 @@ public class Student implements Serializable {
         this.isLeave = false;
         this.isAbsence = false;
         this.isAllowToExam = true;
+    }
+    public Student(String id, String name, String phone, String sex,
+                   String academy, String classOfAcademy, String duty) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.sex = sex;
+        this.academy = academy;
+        this.classOfAcademy = classOfAcademy;
+        this.duty = duty;
     }
 
     public String getId() {
@@ -52,6 +65,30 @@ public class Student implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDuty() {
+        return duty;
+    }
+
+    public void setDuty(String duty) {
+        this.duty = duty;
     }
 
     public boolean isCome() {

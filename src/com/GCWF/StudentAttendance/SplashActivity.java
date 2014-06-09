@@ -31,7 +31,7 @@ public class SplashActivity extends Activity {
                     editor.putInt("count", 1); // 存入数据
                     editor.commit(); // 提交修改
                 } else {
-                    mainIntent.setClass(SplashActivity.this,MainActivity.class);
+                    mainIntent.setClass(SplashActivity.this, MainActivity.class);
                 }
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();

@@ -16,9 +16,28 @@
         <activity
                 android:name="MainActivity"
                 android:theme="@android:style/Theme.Holo.Light"
-                android:label="@string/actionbar_label"
+                android:label="功能"
                 >
         </activity>
+
+        <activity android:name="CourseAvtivity"
+                  android:theme="@android:style/Theme.Holo.Light"
+                  android:label="@string/actionbar_label"
+                ></activity>
+
+        <activity android:name="ClassesActivity"
+                  android:theme="@android:style/Theme.Holo.Light"
+                  android:label="@string/classes_label"
+                  ></activity>
+
+        <activity android:name="AddCourseOrDetailActivity"
+                  android:theme="@android:style/Theme.Holo.Light"
+                  android:label="课程"></activity>
+
+        <activity android:name="RollCallCourseActivity"
+                  android:theme="@android:style/Theme.Holo.Light"
+                  android:label="课程"></activity>
+
         <activity android:name="RollCallActivity"
                   android:theme="@android:style/Theme.Holo.Light"
                   android:label="点名">

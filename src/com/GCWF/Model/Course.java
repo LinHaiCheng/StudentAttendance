@@ -3,19 +3,38 @@ package com.GCWF.Model;
 import java.io.Serializable;
 
 /**
- * Created by Chuan on 6/8/14.
+ * Created by 程海林 on 6/8/14.
  */
 public class Course implements Serializable {
+    private String id;
     private String name;
+    private String courseTime;      //课时
+    private String timeLength;      //课长（XX周--XX周）
     private String teacher;
-    private String courseTime;
 
     public Course() {
-        this.name = "Java";
-        this.teacher = "张元茂";
-        this.courseTime = "64";
+        id = "1";
+        name = "移动终端开发";
+        courseTime = "32课时";
+        timeLength = "从：8周 到：10周";
+        teacher = "张元茂";
     }
 
+    public Course(String name, String id, String courseTime, String timeLength, String teacher) {
+        this.name = name;
+        this.id = id;
+        this.courseTime = courseTime;
+        this.timeLength = timeLength;
+        this.teacher = teacher;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -25,19 +44,27 @@ public class Course implements Serializable {
         this.name = name;
     }
 
-    public String getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
-    }
-
     public String getCourseTime() {
         return courseTime;
     }
 
     public void setCourseTime(String courseTime) {
         this.courseTime = courseTime;
+    }
+
+    public String getTimeLength() {
+        return timeLength;
+    }
+
+    public void setTimeLength(String timeLength) {
+        this.timeLength = timeLength;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 }

@@ -42,6 +42,9 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(MainActivity.this, ClassesActivity.class);
+            Bundle mBundle = new Bundle();
+            mBundle.putSerializable("formWhere", "MainActivity");
+            intent.putExtras(mBundle);
             startActivity(intent);
         }
     };

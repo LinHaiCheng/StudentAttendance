@@ -17,6 +17,7 @@ public class ClassesActivity extends Activity {
 
     private ListView listView;
     private ArrayList<Class> classes;
+    private String fromWhere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,13 @@ public class ClassesActivity extends Activity {
             Class c = new Class();
             classes.add(c);
         }
+        // 判断上一个Activity
+        fromWhere = (String)getIntent().getSerializableExtra("formWhere");
         listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(new ClassAdapter(classes));
-        listView.setOnItemClickListener(itemSelectedListener);
+        if (fromWhere == null) {
+            listView.setOnItemClickListener(itemSelectedListener);
+        }
     }
 
     @Override
@@ -44,7 +49,7 @@ public class ClassesActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int item_id = item.getItemId();
         switch (item_id) {
-            case R.id.addClass:
+            case R.id.add:
                 Intent intent = new Intent(ClassesActivity.this, FileActivity.class);
                 startActivity(intent);
                 break;
@@ -56,9 +61,10 @@ public class ClassesActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Intent intent = new Intent(ClassesActivity.this, RollCallActivity.class);
-            Bundle mBundle = new Bundle();
+    /*        Bundle mBundle = new Bundle();
             mBundle.putSerializable("classInfo", classes.get(i));
             intent.putExtras(mBundle);
+            */
             startActivity(intent);
         }
     };
@@ -103,20 +109,27 @@ public class ClassesActivity extends Activity {
 
             View itemView = inflater.inflate(R.layout.class_listview_item, null);
 
-            TextView classId = (TextView)itemView.findViewById(R.id.classId);
-            classId.setText(c.getId());
+            TextView className = (TextView)itemView.findViewById(R.id.classId);
+            className.setText(c.getClassName());
             TextView classTime = (TextView)itemView.findViewById(R.id.classTime);
-            classTime.setText(c.getClassTime());
-            ImageView detailView = (ImageView)itemView.findViewById(R.id.detailView);
-            detailView.setImageResource(R.drawable.detailarrow);
+            classTime.setText("2014-6-11");
+            // 如果上一个Activity是MainActivity那么，不加载详细箭头
+
+            if (fromWhere == null) {
+                ImageView detailView = (ImageView)itemView.findViewById(R.id.detailView);
+                detailView.setImageResource(R.drawable.detailarrow);
+            }
+
             TextView classBosses = (TextView)itemView.findViewById(R.id.classBosses);
-            String bossesString = "班长: " + c.getClassMonitor().getName() + "  学习委员: " + c.getStudyMonitor().getName();
+            String bossesString = "班长: " + c.getMonitor() + "  学习委员: " + c.getCommissary();
             classBosses.setText(bossesString);
             TextView classNum = (TextView)itemView.findViewById(R.id.classNum);
-            String shouldComeString = "应到: " + c.getStuNum() + "人";
+            String shouldComeString = "应到: " + c.getTotal() + "人";
             classNum.setText(shouldComeString);
             TextView attendance = (TextView)itemView.findViewById(R.id.attendance);
             StringBuffer anntendanceString = new StringBuffer("点名情况: ");
+
+            /*
             if (c.getAbsenceStuNum() == 0) {
                 anntendanceString = anntendanceString.append("全勤");
             } else if (c.getLeaveStuNum() == 0) {
@@ -128,7 +141,8 @@ public class ClassesActivity extends Activity {
                 anntendanceString = anntendanceString.append("实到" + num + "人, 请假" + c.getLeaveStuNum() + "人, 旷课"
                         + c.getAbsenceStuNum() + "人");
             }
-            attendance.setText(anntendanceString);
+            */
+            attendance.setText(anntendanceString.append("实到32人， 请假4人，旷课4人"));
             return itemView;
         }
     }

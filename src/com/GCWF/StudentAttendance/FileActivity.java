@@ -86,7 +86,7 @@ public class FileActivity extends Activity {
                     } else {
                         String prefix=file.getName().substring(file.getName().lastIndexOf(".")+1);
                         if (prefix != null && !"".equals(prefix)) {
-                            if ("xls".equals(prefix) || "xlxs".equals(prefix) || "xlsx".equals(prefix)) {
+                            if ("xls".equals(prefix) || "xlsx".equals(prefix)) {
                                 new AlertDialog.Builder(FileActivity.this)
                                         .setMessage("是否导入文件")
                                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -149,13 +149,14 @@ public class FileActivity extends Activity {
                 students = new ArrayList<Student>();
                 for (int i = 1; i < rsRows; i++) {
                     Student student = new Student(
-                            readsheet.getCell(0, i).getContents(),
+                    /*        readsheet.getCell(0, i).getContents(),
                             readsheet.getCell(1, i).getContents(),
                             readsheet.getCell(2, i).getContents(),
                             readsheet.getCell(3, i).getContents(),
                             readsheet.getCell(4, i).getContents(),
                             readsheet.getCell(5, i).getContents(),
                             readsheet.getCell(6, i).getContents()
+                            */
                     );
                     students.add(student);
                 }

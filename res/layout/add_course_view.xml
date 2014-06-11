@@ -9,51 +9,122 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
-        <TextView
-                android:layout_weight="0.5"
+        <LinearLayout
+                android:layout_height="fill_parent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="课程名："
-                android:id="@+id/courseText" android:layout_marginLeft="20dp"/>
-        <EditText
-                android:layout_weight="1"
+                android:layout_weight="1" android:textAlignment="center">
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="课程名："
+                    android:id="@+id/courseText" android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_height="fill_parent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/courseName"/>
+                android:layout_weight="1">
+            <EditText
+                    android:layout_weight="1"
+                    android:editable="false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/courseName"/>
+        </LinearLayout>
+
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
-        <TextView
-                android:layout_weight="0.5"
+        <LinearLayout
+                android:layout_height="fill_parent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="代课教师："
-                android:id="@+id/teacherText" android:layout_marginLeft="20dp"/>
-        <EditText
-                android:layout_weight="1.25"
+                android:layout_weight="1">
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="代课教师："
+                    android:id="@+id/teacherText" android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_height="fill_parent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/teacherName"/>
+                android:layout_weight="1">
+            <EditText
+                    android:layout_weight="1"
+                    android:editable="false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/teacherName"/>
+        </LinearLayout>
+
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_height="fill_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1">
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="学时："
+                    android:id="@+id/timeText" android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_height="fill_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1">
+            <EditText
+                    android:layout_weight="1"
+                    android:editable="false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/courseTime"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
         <TextView
                 android:layout_weight="0.5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="学时："
-                android:id="@+id/timeText" android:layout_marginLeft="20dp"/>
-        <EditText
-                android:layout_weight="0.85"
+                android:text="时长："
+                android:id="@+id/lengthText" android:layout_marginLeft="20dp"/>
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/courseTime"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="从:"
+                android:id="@+id/timeFromText"/>
+        <Spinner
+                android:layout_width="60dp"
+                android:layout_height="27dp"
+                android:id="@+id/timeFrom"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="周  到:"
+                android:id="@+id/toTimeText"/>
+        <Spinner
+                android:layout_width="60dp"
+                android:layout_height="27dp"
+                android:id="@+id/timeTo"/>
+
     </LinearLayout>
 </LinearLayout>

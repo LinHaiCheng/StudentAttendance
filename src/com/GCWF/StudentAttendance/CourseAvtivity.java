@@ -40,6 +40,18 @@ public class CourseAvtivity extends Activity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int item_id = item.getItemId();
+        switch (item_id) {
+            case R.id.add:
+                Intent intent = new Intent(CourseAvtivity.this, AddCourseOrDetailActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private AdapterView.OnItemClickListener itemSelectedListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

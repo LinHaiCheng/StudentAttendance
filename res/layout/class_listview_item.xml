@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/detailView"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/detailarrow"/>
+                />
     </RelativeLayout>
     <TextView
             android:layout_width="match_parent"

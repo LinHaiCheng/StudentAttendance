@@ -10,12 +10,14 @@ import android.widget.ImageView;
 import com.GCWF.Model.Class;
 import com.GCWF.Model.Student;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by Chuan on 6/5/14.
  */
 public class RollCallActivity extends Activity {
 
-    private Class aClass;
     private int currentStuIndex;
     private ImageView imageView = null;
     private EditText editText = null;
@@ -24,12 +26,16 @@ public class RollCallActivity extends Activity {
     private Button absenceButton = null;
     private Button fuckOffButton = null;
 
+    private List<Student> students;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rollcall);
 
-        aClass = (Class)getIntent().getSerializableExtra("classInfo");
+        Student stu = new Student();
+        students = new LinkedList<Student>();
+        students.add(stu);
 
         imageView = (ImageView)findViewById(R.id.stuhead);
         imageView.setImageResource(R.drawable.head);
@@ -50,15 +56,15 @@ public class RollCallActivity extends Activity {
     }
 
     private void configUI() {
-        if (currentStuIndex <= aClass.getStudents().size()) {
-            Student currentStu = aClass.getStudents().get(currentStuIndex);
+        if (currentStuIndex <= students.size()) {
+            Student currentStu = students.get(currentStuIndex);
 
             String stuInfo = "学号: " + currentStu.getId() + "\n"
                     + "姓名: " + currentStu.getName() + "\n"
-                    + currentStu.getAcademy()
-                    + currentStu.getClassOfAcademy() + "\n"
-                    + "请假次数: " + currentStu.getLeaveNum() + "\n"
-                    + "旷课次数: " + currentStu.getAbsenceNum();
+                    + currentStu.getaClass().getAcademy()
+                    + currentStu.getaClass().getClassName() + "\n"
+                    + "请假次数: " + "0" + "\n"
+                    + "旷课次数: " + "0";
 
             editText.setText(stuInfo);
         } else {
@@ -69,9 +75,9 @@ public class RollCallActivity extends Activity {
     private View.OnClickListener comeButtonListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Student currentStu = aClass.getStudents().get(currentStuIndex);
-            currentStu.setCome(true);
-            aClass.setComeStuNum(aClass.getComeStuNum() + 1);
+            Student currentStu = students.get(currentStuIndex);
+    //        currentStu.setCome(true);
+    //        aClass.setComeStuNum(aClass.getComeStuNum() + 1);
             ++ currentStuIndex;
             configUI();
         }
@@ -80,9 +86,9 @@ public class RollCallActivity extends Activity {
     private View.OnClickListener leaveButtonListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Student currentStu = aClass.getStudents().get(currentStuIndex);
-            currentStu.setLeave(true);
-            aClass.setLeaveStuNum(aClass.getLeaveStuNum() + 1);
+            Student currentStu = students.get(currentStuIndex);
+    //        currentStu.setLeave(true);
+    //        aClass.setLeaveStuNum(aClass.getLeaveStuNum() + 1);
             ++ currentStuIndex;
             configUI();
         }
@@ -91,9 +97,9 @@ public class RollCallActivity extends Activity {
     private View.OnClickListener absenceButtonListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Student currentStu = aClass.getStudents().get(currentStuIndex);
-            currentStu.setAbsence(true);
-            aClass.setAbsenceStuNum(aClass.getAbsenceStuNum() + 1);
+            Student currentStu = students.get(currentStuIndex);
+    //        currentStu.setAbsence(true);
+    //        aClass.setAbsenceStuNum(aClass.getAbsenceStuNum() + 1);
             ++ currentStuIndex;
             configUI();
         }
@@ -102,10 +108,10 @@ public class RollCallActivity extends Activity {
     private View.OnClickListener fuckOffButotnListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Student currentStu = aClass.getStudents().get(currentStuIndex);
-            currentStu.setAbsence(true);
-            aClass.setAbsenceStuNum(aClass.getAbsenceStuNum() + 1);
-            currentStu.setAllowToExam(true);
+            Student currentStu = students.get(currentStuIndex);
+    //        currentStu.setAbsence(true);
+    //        aClass.setAbsenceStuNum(aClass.getAbsenceStuNum() + 1);
+    //        currentStu.setAllowToExam(true);
             ++ currentStuIndex;
             configUI();
         }

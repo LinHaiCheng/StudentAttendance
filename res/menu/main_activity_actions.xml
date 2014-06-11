@@ -6,9 +6,9 @@
             android:actionViewClass="android.widget.SearchView"
             android:showAsAction="ifRoom"
             android:title="Search"/>
-    <item android:id="@+id/addClass"
+    <item android:id="@+id/add"
           android:icon="@drawable/add"
-          android:title="addClass"
+          android:title="add"
           android:showAsAction="always" />
 
 </menu>

@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import com.GCWF.Adapter.ViewPagerAdapter;
+
 /**
  * Created by 程海林 on 2014/6/7.
  */
@@ -59,7 +61,7 @@ public class GuideActivity extends Activity {
         startBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GuideActivity.this, ClassesActivity.class);
+                Intent intent = new Intent(GuideActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -72,17 +74,17 @@ public class GuideActivity extends Activity {
             public void onPageSelected(int i) {
                 switch (i) {
                     case 0:
-                        point0.setImageDrawable(getResources().getDrawable(R.drawable.select));
-                        point1.setImageDrawable(getResources().getDrawable(R.drawable.normal));
+                        point0.setImageDrawable(getResources().getDrawable(R.drawable.normal));
+                        point1.setImageDrawable(getResources().getDrawable(R.drawable.select));
                         break;
                     case 1:
-                        point1.setImageDrawable(getResources().getDrawable(R.drawable.select));
-                        point0.setImageDrawable(getResources().getDrawable(R.drawable.normal));
-                        point2.setImageDrawable(getResources().getDrawable(R.drawable.normal));
+                        point1.setImageDrawable(getResources().getDrawable(R.drawable.normal));
+                        point0.setImageDrawable(getResources().getDrawable(R.drawable.select));
+                        point2.setImageDrawable(getResources().getDrawable(R.drawable.select));
                         break;
                     case 2:
-                        point2.setImageDrawable(getResources().getDrawable(R.drawable.select));
-                        point1.setImageDrawable(getResources().getDrawable(R.drawable.normal));
+                        point2.setImageDrawable(getResources().getDrawable(R.drawable.normal));
+                        point1.setImageDrawable(getResources().getDrawable(R.drawable.select));
                         break;
                 }
                 currIndex = i;

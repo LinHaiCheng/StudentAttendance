@@ -7,57 +7,54 @@
             android:orientation="horizontal"
             android:layout_weight="1"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent" android:layout_margin="0dp">
 
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent" android:layout_margin="0dp">
             <Button
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:text="课程"
-                    android:id="@+id/courseBtn" android:layout_margin="20dp"/>
+                    android:id="@+id/courseBtn"
+                    android:clickable="false" android:background="@drawable/left_top"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent" android:layout_margin="0dp">
             <Button
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:text="班级"
-                    android:id="@+id/classesBtn" android:layout_margin="20dp"/>
+                    android:id="@+id/classesBtn" android:background="@drawable/right_top"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_weight="1"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent" android:layout_margin="0dp">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent" android:layout_margin="0dp">
             <Button
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:text="点名"
-                    android:id="@+id/rollcallBtn" android:layout_margin="20dp"/>
+                    android:id="@+id/rollcallBtn" android:background="@drawable/left_down"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent" android:layout_margin="0dp">
             <Button
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:text="考勤表"
-                    android:id="@+id/exportBtn" android:layout_margin="20dp"/>
+                    android:id="@+id/exportBtn" android:background="@drawable/right_dowm"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

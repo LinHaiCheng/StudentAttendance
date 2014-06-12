@@ -43,7 +43,7 @@
                   android:label="点名">
         </activity>
         <activity android:name="GuideActivity"
-                  android:theme="@android:style/Theme.Holo.Light"
+                  android:theme="@android:style/Theme.NoTitleBar"
                   android:label="引导">
         </activity>
 

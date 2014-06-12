@@ -11,17 +11,18 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="35dp"
         android:gravity="center"
-        android:text="123"
+        android:text=""
         android:textColor="#cccccc"
         android:textSize="22sp" />
 
     <Button
         android:id="@+id/startBtn"
+        android:background="@drawable/newlifebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="73dp"
-        android:text="开启新的生活" />
+        android:text="" />
     
 </RelativeLayout>

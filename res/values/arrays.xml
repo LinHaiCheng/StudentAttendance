@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="snooze_dismiss_drawables">
+        <item>@drawable/ic_item_attendance</item>
+        <item>@drawable/ic_item_kaoqin</item>
+        <item>@drawable/ic_item_course</item>
+        <item>@drawable/ic_item_classes</item>
+    </array>
+    <array name="snooze_dismiss_descriptions">
+        <item>dismiss</item>
+        <item>@null</item>
+        <item>snooze</item>
+        <item>@null</item>
+    </array>
+    <array name="snooze_dismiss_direction_descriptions">
+        <item>right</item>
+        <item>bottom</item>
+        <item>left</item>
+        <item>top</item>
+    </array>
+
+</resources>

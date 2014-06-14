@@ -6,17 +6,17 @@
         android:state_enabled="true"
         android:state_active="false"
         android:state_focused="false"
-        android:drawable="@drawable/ic_kaoqin"/>
+        android:drawable="@drawable/kaoqin_normal"/>
     <!--激活-->
     <item
         android:state_enabled="true"
         android:state_active="true"
         android:state_focused="false"
-        android:drawable="@drawable/ic_kaoqin"/>
+        android:drawable="@drawable/kaoqin_selected"/>
     <!--聚焦-->
     <item
         android:state_enabled="true"
         android:state_active="false"
         android:state_focused="true"
-        android:drawable="@drawable/ic_kaoqin"/>
+        android:drawable="@drawable/kaoqin_selected"/>
 </selector>

@@ -19,6 +19,7 @@ public class StudentDao {
             ContentValues cv = new ContentValues();
             cv.put("id", student.getId());
             cv.put("name", student.getName());
+        System.out.println(student.getName());
             cv.put("sex", student.getSex());
             cv.put("phone", student.getPhone());
             cv.put("duty", student.getDuty());

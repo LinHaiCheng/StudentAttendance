@@ -1,130 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" android:paddingTop="20dp" android:paddingRight="10dp">
-
+<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            xmlns:android="http://schemas.android.com/apk/res/android">
         <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="65px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="wrap_content"
-                android:layout_weight="1" android:textAlignment="center">
-            <TextView
-                    android:layout_weight="1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="课程名："
-                    android:id="@+id/courseText" android:layout_marginLeft="20dp"/>
-        </LinearLayout>
+                android:layout_weight="3">
 
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <TextView
+                        android:id="@+id/nameView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:text="课程名："
+                        android:textSize="25dp"/>
+                <TextView
+                        android:id="@+id/teacherView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/nameView"
+                        android:layout_marginTop="25px"
+                        android:text="授课教师："
+                        android:textSize="25dp"/>
+                <TextView
+                        android:id="@+id/timeView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/teacherView"
+                        android:layout_marginTop="25px"
+                        android:text="学时："
+                        android:textSize="25dp"/>
+                <TextView
+                        android:id="@+id/timeLengthView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/timeView"
+                        android:layout_marginTop="20px"
+                        android:text="时长："
+                        android:textSize="25dp"/>
+                <TextView
+                        android:id="@+id/classesView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/timeLengthView"
+                        android:layout_marginTop="25px"
+                        android:text="上课班级："
+                        android:textSize="25dp"/>
+            </RelativeLayout>
+        </LinearLayout>
         <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="60px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="wrap_content"
-                android:layout_weight="1">
-            <EditText
-                    android:layout_weight="1"
-                    android:editable="false"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/courseName"/>
-        </LinearLayout>
+                android:layout_weight="2">
 
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <EditText
+                        android:id="@+id/name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        />
+                <EditText
+                        android:id="@+id/teacher"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/name"
+                        android:layout_marginTop="15px"
+                        />
+                <EditText
+                        android:id="@+id/time"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/teacher"
+                        android:layout_marginTop="15px"
+                        />
+                <LinearLayout
+                        android:id="@+id/timeLength"
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/time"
+                        android:layout_marginTop="15px">
+                    <Spinner
+                            android:layout_width="55dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/timeFrom"/>
+                    <TextView
+                            android:id="@+id/toTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="周——"
+                            android:textSize="20dp"/>
+                    <Spinner
+                            android:layout_width="55dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/timeTo"/>
+                    <TextView
+                            android:id="@+id/timeFromText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="周"
+                            android:textSize="20dp"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:id="@+id/classes"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/timeLength"
+                        android:layout_marginTop="15px">
+                <TextView
+                        android:id="@+id/classesSelected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25px"
+                        android:textSize="15dp"/>
+                <Button
+                        android:id="@+id/classBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/timeLength"
+                        android:layout_marginTop="10px"
+                        android:text="选择"
+                        android:textSize="20dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-            android:orientation="horizontal"
+    <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
-                android:layout_height="fill_parent"
-                android:layout_width="wrap_content"
-                android:layout_weight="1">
-            <TextView
-                    android:layout_weight="1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="代课教师："
-                    android:id="@+id/teacherText" android:layout_marginLeft="20dp"/>
-        </LinearLayout>
-        <LinearLayout
-                android:layout_height="fill_parent"
-                android:layout_width="wrap_content"
-                android:layout_weight="1">
-            <EditText
-                    android:layout_weight="1"
-                    android:editable="false"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/teacherName"/>
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
-                android:layout_height="fill_parent"
-                android:layout_width="wrap_content"
-                android:layout_weight="1">
-            <TextView
-                    android:layout_weight="1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="学时："
-                    android:id="@+id/timeText" android:layout_marginLeft="20dp"/>
-        </LinearLayout>
-        <LinearLayout
-                android:layout_height="fill_parent"
-                android:layout_width="wrap_content"
-                android:layout_weight="1">
-            <EditText
-                    android:layout_weight="1"
-                    android:editable="false"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/courseTime"/>
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:layout_weight="0.5"
+            android:layout_height="fill_parent">
+        <Button
+                android:id="@+id/addCourseBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="时长："
-                android:id="@+id/lengthText" android:layout_marginLeft="20dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="从:"
-                android:id="@+id/timeFromText"/>
-        <Spinner
-                android:layout_width="60dp"
-                android:layout_height="27dp"
-                android:id="@+id/timeFrom"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="周  到:"
-                android:id="@+id/toTimeText"/>
-        <Spinner
-                android:layout_width="60dp"
-                android:layout_height="27dp"
-                android:id="@+id/timeTo"/>
-
-    </LinearLayout>
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="确定添加课程"/>
+    </RelativeLayout>
 </LinearLayout>

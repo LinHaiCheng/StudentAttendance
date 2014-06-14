@@ -2,7 +2,7 @@
 <resources>
 
     <array name="snooze_dismiss_drawables">
-        <item>@drawable/ic_item_attendance</item>
+        <item>@drawable/ic_item_rollcall</item>
         <item>@drawable/ic_item_kaoqin</item>
         <item>@drawable/ic_item_course</item>
         <item>@drawable/ic_item_classes</item>

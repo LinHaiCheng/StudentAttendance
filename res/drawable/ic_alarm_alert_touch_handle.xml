@@ -21,7 +21,7 @@
         android:state_enabled="true"
         android:state_active="false"
         android:state_focused="false"
-        android:drawable="@drawable/ic_lockscreen_handle_normal"/>
+        android:drawable="@drawable/ic_lockscreen_handle_pressed"/>
 
     <!-- "Pressed" state uses the same simple "ring" image as on the lockscreen -->
     <item

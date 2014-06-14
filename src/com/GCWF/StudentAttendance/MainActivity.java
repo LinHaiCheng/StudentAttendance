@@ -4,65 +4,81 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+
+import com.GCWF.Utils.SQLiteDB;
+import com.glowpadview.GlowPadView;
+import com.glowpadview.GlowPadView.OnTriggerListener;
 
 /**
- * Created by Chuan on 6/8/14.
+ * Created by Chuan on 6/13/14.
  */
-public class MainActivity extends Activity {
-    private Button courseBtn;
-    private Button classeBtn;
-    private Button rollcallBtn;
-    private Button exportBtn;
+public class MainActivity extends Activity implements OnTriggerListener {
+
+    private GlowPadView mGlowPadView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.features_view);
+        setContentView(R.layout.main);
 
-        courseBtn = (Button)findViewById(R.id.courseBtn);
-        classeBtn = (Button)findViewById(R.id.classesBtn);
-        rollcallBtn = (Button)findViewById(R.id.rollcallBtn);
-        exportBtn = (Button)findViewById(R.id.exportBtn);
+        SQLiteDB sqLiteDB = new SQLiteDB(this, "attendance");
 
-        courseBtn.setOnClickListener(onCourseBtnClickListener);
-        classeBtn.setOnClickListener(onClassesBtnClickListener);
-        rollcallBtn.setOnClickListener(onRollcallBtnClickListener);
-        exportBtn.setOnClickListener(onExportBtnClickListener);
+        mGlowPadView = (GlowPadView) findViewById(R.id.glow_pad_view);
+
+        mGlowPadView.setOnTriggerListener(this);
+
+        mGlowPadView.setShowTargetsOnIdle(true);
     }
 
-    private View.OnClickListener onCourseBtnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, CourseAvtivity.class);
-            startActivity(intent);
-        }
-    };
+    @Override
+    public void onGrabbed(View v, int handle) { }
 
-    private View.OnClickListener onClassesBtnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, ClassesActivity.class);
-            Bundle mBundle = new Bundle();
-            mBundle.putSerializable("formWhere", "MainActivity");
-            intent.putExtras(mBundle);
-            startActivity(intent);
-        }
-    };
+    @Override
+    public void onReleased(View v, int handle) {
+        mGlowPadView.ping();
+    }
 
-    private View.OnClickListener onRollcallBtnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, RollCallCourseActivity.class);
-            startActivity(intent);
-        }
-    };
+    @Override
+    public void onTrigger(View v, int target) {
+        final int resId = mGlowPadView.getResourceIdForTarget(target);
+        switch (resId) {
+            case R.drawable.ic_item_classes:
+                Intent classIntent = new Intent();
+                Bundle classBundle = new Bundle();
+                classBundle.putString("op", "classes");
+                classIntent.putExtras(classBundle);
+                classIntent.setClass(MainActivity.this, ClassesActivity.class);
+                startActivity(classIntent);
+                break;
+            case R.drawable.ic_item_rollcall:
+                Intent aIntent = new Intent();
+                Bundle aBundle = new Bundle();
+                aBundle.putString("op", "rollcall");
+                aIntent.putExtras(aBundle);
+                aIntent.setClass(MainActivity.this, RollCallCourseActivity.class);
+                startActivity(aIntent);
+                break;
+            case R.drawable.ic_item_course:
+                Intent courseIntent = new Intent();
+                Bundle courseBundle = new Bundle();
+                courseBundle.putString("op", "course");
+                courseIntent.putExtras(courseBundle);
+                courseIntent.setClass(MainActivity.this, CourseAvtivity.class);
+                startActivity(courseIntent);
+                break;
+            case R.drawable.ic_item_kaoqin:
 
-    private View.OnClickListener onExportBtnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, GlowPadActivity.class);
-            startActivity(intent);
+                break;
+            default:
+                // Code should never reach here.
         }
-    };
+
+    }
+
+    @Override
+    public void onGrabbedStateChange(View v, int handle) { }
+
+    @Override
+    public void onFinishFinalAnimation() { }
+
 }

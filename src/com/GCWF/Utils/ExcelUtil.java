@@ -51,24 +51,28 @@ public class ExcelUtil {
                 ClassDao classDao = new ClassDao();
                 classes = classDao.addClass(classes);
                 //获取所有学生信息，将信息存入数据库
-                students = new ArrayList<Student>();
-                for (int i = 1; i < rsRows; i++) {
-                    Student student = new Student();
-                    student.setId(readsheet.getCell(0, i).getContents());
-                    student.setName(readsheet.getCell(1, i).getContents());
-                    student.setSex(readsheet.getCell(2, i).getContents());
-                    student.setPhone(readsheet.getCell(3, i).getContents());
-                    String duty = readsheet.getCell(6, i).getContents();
-                    if (duty == null) {duty = "";}
-                    student.setDuty(duty);
+                if (classes != null) {
+                    students = new ArrayList<Student>();
+                    for (int i = 1; i < rsRows; i++) {
+                        Student student = new Student();
+                        student.setId(readsheet.getCell(0, i).getContents());
+                        student.setName(readsheet.getCell(1, i).getContents());
+                        student.setSex(readsheet.getCell(2, i).getContents());
+                        student.setPhone(readsheet.getCell(3, i).getContents());
+                        String duty = readsheet.getCell(6, i).getContents();
+                        if (duty == null) {
+                            duty = "";
+                        }
+                        student.setDuty(duty);
 
-                    student.setaClass(classes);
+                        student.setaClass(classes);
 
-                    students.add(student);
+                        students.add(student);
+                    }
+                    StudentDao studentDao = new StudentDao();
+                    studentDao.addStudents(students);
+                    flog = true;
                 }
-                StudentDao studentDao = new StudentDao();
-                studentDao.addStudents(students);
-                flog = true;
             } else {
                 flog = false;
             }

@@ -11,6 +11,7 @@ public class Course implements Serializable {
     private String courseTime;      //课时
     private String timeLength;      //课长（XX周--XX周）
     private String teacher;
+    private String classes;
 
     public Course() {
         id = "1";
@@ -20,12 +21,13 @@ public class Course implements Serializable {
         teacher = "张元茂";
     }
 
-    public Course(String name, String id, String courseTime, String timeLength, String teacher) {
+    public Course(String name, String id, String courseTime, String timeLength, String teacher, String classes) {
         this.name = name;
         this.id = id;
         this.courseTime = courseTime;
         this.timeLength = timeLength;
         this.teacher = teacher;
+        this.classes = classes;
     }
 
     public String getId() {
@@ -66,5 +68,13 @@ public class Course implements Serializable {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    public String getClasses() {
+        return classes;
+    }
+
+    public void setClasses(String classes) {
+        this.classes = classes;
     }
 }

@@ -60,14 +60,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
                 "commissary varchar(20)," +
                 "total int)";
         db.execSQL(sql);
-        ContentValues cv = new ContentValues();
-        cv.put("id", "0");
-        cv.put("classname", "test");
-        cv.put("academy", "test");
-        cv.put("monitor", "test");
-        cv.put("commissary", "test");
-        cv.put("total", 0);
-        db.insert("classes", null, cv);
     }
     private void initStudentTable(SQLiteDatabase db) {
         String sql = "create table if not exists student(" +

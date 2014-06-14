@@ -74,17 +74,17 @@ public class GuideActivity extends Activity {
             public void onPageSelected(int i) {
                 switch (i) {
                     case 0:
-                        point0.setImageDrawable(getResources().getDrawable(R.drawable.normal));
-                        point1.setImageDrawable(getResources().getDrawable(R.drawable.select));
+                        point0.setImageDrawable(getResources().getDrawable(R.drawable.select));
+                        point1.setImageDrawable(getResources().getDrawable(R.drawable.normal));
                         break;
                     case 1:
-                        point1.setImageDrawable(getResources().getDrawable(R.drawable.normal));
-                        point0.setImageDrawable(getResources().getDrawable(R.drawable.select));
-                        point2.setImageDrawable(getResources().getDrawable(R.drawable.select));
+                        point1.setImageDrawable(getResources().getDrawable(R.drawable.select));
+                        point0.setImageDrawable(getResources().getDrawable(R.drawable.normal));
+                        point2.setImageDrawable(getResources().getDrawable(R.drawable.normal));
                         break;
                     case 2:
-                        point2.setImageDrawable(getResources().getDrawable(R.drawable.normal));
-                        point1.setImageDrawable(getResources().getDrawable(R.drawable.select));
+                        point2.setImageDrawable(getResources().getDrawable(R.drawable.select));
+                        point1.setImageDrawable(getResources().getDrawable(R.drawable.normal));
                         break;
                 }
                 currIndex = i;

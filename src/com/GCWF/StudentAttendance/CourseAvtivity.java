@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
+import com.GCWF.Adapter.CourseAdapter;
+import com.GCWF.Dao.CourseDao;
 import com.GCWF.Model.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Chuan on 6/8/14.
@@ -16,21 +19,24 @@ import java.util.ArrayList;
 public class CourseAvtivity extends Activity {
 
     private ListView listView = null;
-    private ArrayList<Course> courses;
+    private List<Course> courseList;
+    private String op;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.base_listview);
+        Bundle bundle = this.getIntent().getExtras();
+        op = bundle.getString("op");
 
-        courses = new ArrayList<Course>();
-        for (int i = 0; i < 10; i ++) {
-            Course c = new Course();
-            courses.add(c);
-        }
+        CourseDao courseDao = new CourseDao();
+        courseList = courseDao.getAllCourse();
+
         listView = (ListView)findViewById(R.id.listView);
-        listView.setAdapter(new CourseAdapter(courses));
-        listView.setOnItemClickListener(itemSelectedListener);
+        listView.setAdapter(new CourseAdapter(this, courseList));
+        if (!"course".equals(op)) {
+            listView.setOnItemClickListener(itemSelectedListener);
+        }
     }
 
     @Override
@@ -47,6 +53,7 @@ public class CourseAvtivity extends Activity {
             case R.id.add:
                 Intent intent = new Intent(CourseAvtivity.this, AddCourseOrDetailActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -57,64 +64,11 @@ public class CourseAvtivity extends Activity {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Intent intent = new Intent(CourseAvtivity.this, AddCourseOrDetailActivity.class);
             Bundle mBundle = new Bundle();
-            mBundle.putSerializable("courseInfo", courses.get(i));
+            mBundle.putSerializable("courseInfo", courseList.get(i));
             intent.putExtras(mBundle);
             startActivity(intent);
         }
     };
 
-    public class CourseAdapter extends BaseAdapter {
 
-        View[] views = null;
-        ArrayList<Course> coursesInside;
-
-        public CourseAdapter(ArrayList<Course> c) {
-            views = new View[c.size()];
-
-            this.coursesInside = c;
-        }
-
-        @Override
-        public int getCount() {
-            return views.length;
-        }
-
-        @Override
-        public View getItem(int i) {
-            return views[i];
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            if (view == null) {
-                view = makeItemView(courses.get(i));
-            }
-            return view;
-        }
-
-        private View makeItemView(Course c) {
-            LayoutInflater inflater = (LayoutInflater)CourseAvtivity.this
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            View itemView = inflater.inflate(R.layout.course_listview_item, null);
-
-            TextView courseName = (TextView)itemView.findViewById(R.id.courseName);
-            courseName.setText(c.getName());
-            ImageView detailView = (ImageView)itemView.findViewById(R.id.detailView);
-            detailView.setImageResource(R.drawable.detailarrow);
-            TextView courseTeacher = (TextView)itemView.findViewById(R.id.courseTeacher);
-            String bossesString = "代课教师: " + c.getTeacher();
-            courseTeacher.setText(bossesString);
-            TextView courseTime = (TextView)itemView.findViewById(R.id.courseTime);
-            String timeString = "学时: " + c.getCourseTime();
-            courseTime.setText(timeString);
-
-            return itemView;
-        }
-    }
 }

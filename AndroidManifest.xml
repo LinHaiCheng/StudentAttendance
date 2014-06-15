@@ -27,18 +27,14 @@
                   android:label="@string/classes_label"
                   ></activity>
 
-        <activity android:name="AddCourseOrDetailActivity"
+        <activity android:name=".AddCourseActivity"
                   android:theme="@android:style/Theme.Holo.Light"
                   android:label="课程"></activity>
 
-        <activity android:name="RollCallCourseActivity"
+        <activity android:name=".ShowCourseActivity"
                   android:theme="@android:style/Theme.Holo.Light"
                   android:label="课程"></activity>
 
-        <activity android:name="RollCallActivity"
-                  android:theme="@android:style/Theme.Holo.Light"
-                  android:label="点名">
-        </activity>
         <activity android:name="GuideActivity"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:label="引导">
@@ -51,5 +47,11 @@
         <activity android:name=".MainActivity"
                   android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+
+        <activity android:name=".RollCallActivity"
+                  android:theme="@android:style/Theme.Holo.Light"
+                  android:label="测试">
+        </activity>
+        <activity android:name=".TestActivity"/>
     </application>
 </manifest>

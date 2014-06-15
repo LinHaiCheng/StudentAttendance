@@ -102,8 +102,12 @@ public class FileActivity extends Activity {
                                                             .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {
-                                                                    Intent intent = new Intent(FileActivity.this, ClassesActivity.class);
-                                                                    startActivity(intent);
+                                                                    Intent classIntent = new Intent();
+                                                                    Bundle classBundle = new Bundle();
+                                                                    classBundle.putString("op", "classes");
+                                                                    classIntent.putExtras(classBundle);
+                                                                    classIntent.setClass(FileActivity.this, ClassesActivity.class);
+                                                                    startActivity(classIntent);
                                                                     finish();
                                                                 }
                                                             }).show();

@@ -3,38 +3,68 @@
 <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:paddingBottom="7dp">
 
 
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" android:paddingLeft="25dp" android:layout_marginTop="7dp">
+            android:layout_height="wrap_content"
+            android:paddingLeft="25dp"
+            android:layout_marginTop="7dp">
         <TextView
+                android:id="@+id/courseName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/courseName" />
-
+                android:textSize="22dp" />
+        <TextView
+                android:id="@+id/courseTeacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/courseName"
+                android:layout_alignParentBottom="true"
+                android:textColor="#ff808080"
+                android:textSize="16dp"/>
         <ImageView
+                android:id="@+id/detailView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/detailView"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/detailarrow"/>
     </RelativeLayout>
-    <TextView
-            android:layout_width="match_parent"
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/courseTeacher" android:paddingLeft="25dp" android:layout_marginTop="10dp"/>
-    <TextView
-            android:layout_width="match_parent"
+            android:layout_marginLeft="35px">
+        <TextView
+                android:id="@+id/courseTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10px"
+                android:textSize="18dp"
+                android:textColor="#ff808080"/>
+        <TextView
+                android:id="@+id/courseTimeLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10px"
+                android:textSize="18dp"
+                android:textColor="#ff808080"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/courseTime" android:paddingLeft="25dp" android:textColor="#ff808080"/>
+            android:layout_marginLeft="35px">
+        <TextView
+                android:id="@+id/courseClasses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10px"
+                android:textSize="18dp"
+                android:textColor="#ff808080"/>
+    </LinearLayout>
 
 </LinearLayout>

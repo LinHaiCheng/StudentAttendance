@@ -54,7 +54,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
     private void initClassTable(SQLiteDatabase db) {
         String sql = "create table if not exists classes(" +
                 "id varchar(8) primary key," +
-                "classname varchar(20)," +
+                "classname varchar(20) UNIQUE," +
                 "academy varchar(20)," +
                 "monitor varchar(20)," +
                 "commissary varchar(20)," +
@@ -75,10 +75,11 @@ public class SQLiteDB extends SQLiteOpenHelper {
     private void initCourseTable(SQLiteDatabase db) {
         String sql = "create table if not exists course(" +
                 "id varchar(8) primary key," +
-                "name varchar(20)," +
+                "name varchar(20) UNIQUE," +
                 "courseTime int," +
                 "timeLength varchar(16)," +
-                "teacher varchar(20))";
+                "teacher varchar(20)," +
+                "classes varchar(64))";
         db.execSQL(sql);
     }
     private void initAttendanceRecordTable(SQLiteDatabase db) {
@@ -94,7 +95,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
                 "studentid varchar(11)," +
                 "recordid varchar(8)," +
                 "result varchar(1)," +
-                "primary key (studentid, recordid)," +
+              //  "primary key (studentid, recordid)," +
                 "foreign key (studentid) references student(id)," +
                 "foreign key (recordid) references record(id))";
         db.execSQL(sql);

@@ -1,7 +1,6 @@
 package com.GCWF.StudentAttendance;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
@@ -10,7 +9,6 @@ import com.GCWF.Adapter.CourseAdapter;
 import com.GCWF.Dao.CourseDao;
 import com.GCWF.Model.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -51,7 +49,7 @@ public class CourseAvtivity extends Activity {
         int item_id = item.getItemId();
         switch (item_id) {
             case R.id.add:
-                Intent intent = new Intent(CourseAvtivity.this, AddCourseOrDetailActivity.class);
+                Intent intent = new Intent(CourseAvtivity.this, AddCourseActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -62,7 +60,7 @@ public class CourseAvtivity extends Activity {
     private AdapterView.OnItemClickListener itemSelectedListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Intent intent = new Intent(CourseAvtivity.this, AddCourseOrDetailActivity.class);
+            Intent intent = new Intent(CourseAvtivity.this, AddCourseActivity.class);
             Bundle mBundle = new Bundle();
             mBundle.putSerializable("courseInfo", courseList.get(i));
             intent.putExtras(mBundle);

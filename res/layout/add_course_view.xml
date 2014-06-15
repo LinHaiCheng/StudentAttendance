@@ -95,6 +95,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/teacher"
                         android:layout_marginTop="15px"
+                        android:numeric="integer"
                         />
                 <LinearLayout
                         android:id="@+id/timeLength"

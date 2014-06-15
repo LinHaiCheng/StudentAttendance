@@ -35,12 +35,12 @@ public class ClassDao {
     }
 
     private boolean isTheClassExist(String className) {
-        String sql = "select * from classes where classname="+className;
-       // Cursor cursor = db.rawQuery(sql, null);
         Cursor cursor = db.query("classes", null, "classname = ?", new String[]{className}, null, null, null, null);
         if (cursor != null && cursor.getCount() == 1) {
+            cursor.close();
             return false;
         } else {
+            cursor.close();
             return true;
         }
     }
@@ -79,6 +79,7 @@ public class ClassDao {
                 classList.add(aClass);
                 cursor.moveToNext();
             }
+            cursor.close();
             return classList;
         } else {
             return null;
@@ -95,9 +96,48 @@ public class ClassDao {
                 nameList.add(cursor.getString(0));
                 cursor.moveToNext();
             }
+            cursor.close();
             return nameList;
         } else {
             return null;
         }
+    }
+
+    public List<Class> getClassesByName(String [] classes) {
+        List<Class> classList = new ArrayList<Class>();
+        Cursor cursor = db.query("classes", null, "classname = ?", classes, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Class aClass = new Class();
+            aClass.setId(cursor.getString(0));
+            aClass.setClassName(cursor.getString(1));
+            aClass.setAcademy(cursor.getString(2));
+            aClass.setMonitor(cursor.getString(3));
+            aClass.setCommissary(cursor.getString(4));
+            aClass.setTotal(cursor.getInt(5));
+            classList.add(aClass);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return classList;
+    }
+
+    public Class getClassById(String classId) {
+        Class aClass = null;
+        String sql = "select * from classes where id=?";
+        Cursor cursor = db.rawQuery(sql, new String[]{classId});
+        //Cursor cursor = db.query("classes", null, "id = ?", new String []{classId}, null, null, null, null);
+        cursor.moveToFirst();
+        if (!cursor.isAfterLast()) {
+            aClass = new Class();
+            aClass.setId(cursor.getString(0));
+            aClass.setClassName(cursor.getString(1));
+            aClass.setAcademy(cursor.getString(2));
+            aClass.setMonitor(cursor.getString(3));
+            aClass.setCommissary(cursor.getString(4));
+            aClass.setTotal(cursor.getInt(5));
+        }
+        cursor.close();
+        return aClass;
     }
 }

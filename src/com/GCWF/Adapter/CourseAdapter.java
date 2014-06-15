@@ -61,16 +61,22 @@ public class CourseAdapter extends BaseAdapter {
         View itemView = inflater.inflate(R.layout.course_listview_item, null);
 
         TextView courseName = (TextView)itemView.findViewById(R.id.courseName);
-        courseName.setText(c.getName());
+        courseName.setText(c.getName() + "    ");
+
+        TextView courseTeacher = (TextView)itemView.findViewById(R.id.courseTeacher);
+        courseTeacher.setText(c.getTeacher());
+
         ImageView detailView = (ImageView)itemView.findViewById(R.id.detailView);
         detailView.setImageResource(R.drawable.detailarrow);
-        TextView courseTeacher = (TextView)itemView.findViewById(R.id.courseTeacher);
-        String bossesString = "代课教师: " + c.getTeacher();
-        courseTeacher.setText(bossesString);
-        TextView courseTime = (TextView)itemView.findViewById(R.id.courseTime);
-        String timeString = "学时: " + c.getCourseTime();
-        courseTime.setText(timeString);
 
+        TextView courseTime = (TextView)itemView.findViewById(R.id.courseTime);
+        courseTime.setText(c.getCourseTime() + "学时");
+
+        TextView courseTimeLength = (TextView)itemView.findViewById(R.id.courseTimeLength);
+        courseTimeLength.setText("       " + c.getTimeLength());
+
+        TextView courseClasses = (TextView)itemView.findViewById(R.id.courseClasses);
+        courseClasses.setText(c.getClasses());
         return itemView;
     }
 }

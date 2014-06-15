@@ -55,7 +55,7 @@ public class MainActivity extends Activity implements OnTriggerListener {
                 Bundle aBundle = new Bundle();
                 aBundle.putString("op", "rollcall");
                 aIntent.putExtras(aBundle);
-                aIntent.setClass(MainActivity.this, RollCallCourseActivity.class);
+                aIntent.setClass(MainActivity.this, ShowCourseActivity.class);
                 startActivity(aIntent);
                 break;
             case R.drawable.ic_item_course:
@@ -67,7 +67,13 @@ public class MainActivity extends Activity implements OnTriggerListener {
                 startActivity(courseIntent);
                 break;
             case R.drawable.ic_item_kaoqin:
-
+                Intent kaoqinIntent = new Intent();
+                Bundle kaoqinBundle = new Bundle();
+                kaoqinBundle.putString("op", "kaoqin");
+                kaoqinIntent.putExtras(kaoqinBundle);
+                //kaoqinIntent.setClass(MainActivity.this, ShowCourseActivity.class);
+               // kaoqinIntent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(kaoqinIntent);
                 break;
             default:
                 // Code should never reach here.

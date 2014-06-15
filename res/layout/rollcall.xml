@@ -1,49 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" android:weightSum="1">
-
-
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+ <!--   <LinearLayout
+            android:id="@+id/top"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+        <TextView
+            android:id="@+id/prefix"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+                android:id="@+id/current"
+                android:gravity="center"
+                android:textColor="#0000ff"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        <TextView
+                android:id="@+id/next"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+    </LinearLayout>   -->
     <LinearLayout
+            android:id="@+id/up"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
-        <ImageView
+        <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/stuhead"/>
-        <EditText
+                android:layout_alignParentLeft="true"
+                android:id="@+id/firstlinear">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/stuhead"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/stuinfo" android:focusable="false"/>
+                android:layout_alignParentRight="true"
+                android:id="@+id/secondlinear">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/stuinfo"
+                android:textSize="20dp"/>
+        </LinearLayout>
+
     </LinearLayout>
-    <Button
-            android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="到课"
-            android:id="@+id/come"/>
+
     <LinearLayout
+            android:id="@+id/center"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" android:weightSum="1">
-        <Button
-                android:layout_width="198dp"
-                android:layout_height="60dp"
-                android:text="请假"
-                android:id="@+id/leave" android:layout_weight="0.90"/>
-        <Button
-                android:layout_width="198dp"
-                android:layout_height="60dp"
-                android:text="旷课"
-                android:id="@+id/absence"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200px"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/slideleftview"
+                android:background="@drawable/slide_left"/>
     </LinearLayout>
-    <Button
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="取消考试资格"
-            android:id="@+id/fuckoff"/>
-</LinearLayout>
+            android:layout_height="wrap_content" android:id="@+id/thirdlinear">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:weightSum="1">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/leave"
+                    android:layout_weight="1"
+                    android:background="@drawable/leave"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/late"
+                    android:background="@drawable/late"
+                    android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/absence"
+                android:background="@drawable/absence"
+                android:layout_marginBottom="0dp"/>
+        </LinearLayout>
+
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/come" android:background="@drawable/came_to_class"/>
+    </LinearLayout>
+</RelativeLayout>
